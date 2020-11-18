@@ -144,7 +144,7 @@ int part(vector<int>& iArray, int l, int r)
 	int random = l + rand() % (r - l);
 	//In random, must swap the random attribute with r
 	swap(iArray[random], iArray[r]);
-	step++;
+	step ++;
 	int pivot = iArray[r];
 	int x = (l - 1);
 	step += 2;
@@ -155,13 +155,13 @@ int part(vector<int>& iArray, int l, int r)
 			x++;
 			//If array at i is lesser, switch with position x
 			swap(iArray[x], iArray[y]);
-			step++;
+			step ++;
 		}
-		step += 2;
+		step+=2;
 	}
 	//keep it going
 	swap(iArray[x + 1], iArray[r]);
-	step++;
+	step ++;
 	return (x + 1);
 }
 
@@ -223,7 +223,7 @@ void quickSort(vector<int>& input, int l, int r) {
 	}
 	//recall function if needed
 	if (l < u) {
-
+		
 		quickSort(input, d, u);
 		step++;
 	}
@@ -275,7 +275,7 @@ int main()
 	vector<int> iiArrayay = {};
 	//n will become a vector since a normal iArrayay requires a const
 	vector<int> niArrayay = { 100,200,300,400,500,1000,4000,10000 };
-
+	
 	for (int i = 0; i < niArrayay.size(); i++)
 	{
 		cout << "These are the CPU running times for n at the value of " << niArrayay[i] << "." << endl;
@@ -318,7 +318,7 @@ int main()
 		iiArrayay.clear();
 		alreadySort(iiArrayay, niArrayay[i]);
 		t1 = chrono::steady_clock::now();
-		quickSort(iiArrayay, 0, iiArrayay.size() - 1);
+		quickSort(iiArrayay, 0 ,iiArrayay.size()-1);
 		t2 = chrono::steady_clock::now();
 
 		time_span = chrono::duration_cast<chrono::duration<double>>(t2 - t1);
@@ -382,7 +382,7 @@ int main()
 
 		time_span = chrono::duration_cast<chrono::duration<double>>(t2 - t1);
 
-		cout << "Quicksort for Already Sorted took " << time_span.count() << " seconds in " << step << " steps with an approximation of c at " << (step / pow(niArrayay[i], 2));
+		cout << "Quicksort for reversely Sorted took " << time_span.count() << " seconds in " << step << " steps with an approximation of c at " << (step / pow(niArrayay[i], 2));
 		cout << std::endl;
 		step = 0;
 
@@ -394,7 +394,7 @@ int main()
 
 		time_span = chrono::duration_cast<chrono::duration<double>>(t2 - t1);
 
-		cout << "Randomized Quicksort for Already Sorted took " << time_span.count() << " seconds in " << step << " steps with an approximation of c at " << (step / pow(niArrayay[i], 2));
+		cout << "Randomized Quicksort for reversely Sorted took " << time_span.count() << " seconds in " << step << " steps with an approximation of c at " << (step / pow(niArrayay[i], 2));
 		cout << std::endl;
 		step = 0;
 
@@ -443,7 +443,7 @@ int main()
 
 		time_span = chrono::duration_cast<chrono::duration<double>>(t2 - t1);
 
-		cout << "Quicksort for Already Sorted took " << time_span.count() << " seconds in " << step << " steps with an approximation of c at " << (step / pow(niArrayay[i], 2));
+		cout << "Quicksort for random permutation took " << time_span.count() << " seconds in " << step << " steps with an approximation of c at " << (step / pow(niArrayay[i], 2));
 		cout << std::endl;
 		step = 0;
 
@@ -455,13 +455,13 @@ int main()
 
 		time_span = chrono::duration_cast<chrono::duration<double>>(t2 - t1);
 
-		cout << "Randomized Quicksort for Already Sorted took " << time_span.count() << " seconds in " << step << " steps with an approximation of c at " << (step / pow(niArrayay[i], 2));
+		cout << "Randomized Quicksort for random permutation took " << time_span.count() << " seconds in " << step << " steps with an approximation of c at " << (step / pow(niArrayay[i], 2));
 		cout << std::endl;
 		step = 0;
 
 
 		//Part4 - 50 instances of n random numbers
-		int total = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, countStep = 0, countStep2 = 0, countStep3 = 0, countStep4 = 0, countStep5 = 0;
+		int total = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, countStep = 0, countStep2 = 0, countStep3 = 0, countStep4 =0, countStep5 =0;
 		for (int y = 0; y < 50; y++)
 		{
 			iiArrayay.clear();
@@ -513,7 +513,7 @@ int main()
 		}
 
 		//time_span = chrono::duration_cast<chrono::duration<double>>(t2 - t1);
-
+		cout << endl;
 		cout << "Insertion for 50 instances of random took " << total << " seconds in " << countStep << " steps with an approximation of c at " << (step / pow(niArrayay[i], 2));
 		cout << std::endl;
 
